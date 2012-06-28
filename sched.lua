@@ -141,8 +141,6 @@ step_task = function(t, ...)
 			return emit_signal(t, event_die, true, skip1ret(unpack(ret)))
 		else
 			log('SCHED', 'WARNING', '%s die on error, returning %d parameters', tostring(t), #ret-1)
-			
-			print('!!!!!', ret[1], ret[2], ret[3])
 			return emit_signal(t, event_die, nil, skip1ret(unpack(ret)))
 		end
 	end
