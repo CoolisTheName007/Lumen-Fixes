@@ -172,9 +172,9 @@ end
 --blocks a task waiting for a signal. registers the task in waiting table.
 local register_signal = function(task, waitd)
 	local emitter, timeout, events = waitd.emitter, waitd.timeout, waitd.events
+	if events=='*' then events={'*'} end
 	local taskd = tasks[task]
 	taskd.waitingfor = waitd
-	if events=='*' then events={'*'} end
 
 	if timeout and timeout>=0 then
 		local t = timeout + M.get_time()
